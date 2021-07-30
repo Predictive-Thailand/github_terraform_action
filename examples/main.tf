@@ -5,7 +5,7 @@ resource "random_string" "launch_id" {
 }
 
 locals {
-  suffix = format("%s-%s-%s", "tf", "abc", random_string.launch_id.result)
+  suffix = format("%s-%s", "tf", random_string.launch_id.result)
 }
 
 module "kylo_ren" {
