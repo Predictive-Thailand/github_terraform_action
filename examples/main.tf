@@ -5,7 +5,7 @@ resource "random_string" "launch_id" {
 }
 
 locals {
-  suffix = format("%s-%s", "tf", random_string.launch_id.result)
+  suffix = format("%s-%s-%s", "tf", "abc", random_string.launch_id.result)
 }
 
 module "kylo_ren" {
@@ -13,7 +13,7 @@ module "kylo_ren" {
   suffix           = local.suffix
   gcp_project_id   = var.gcp_project_id
   vpc_network_name = "default"
-  instance_name    = "jitkasem-poc"
+  instance_name    = "predictive-action"
   network_tags     = ["http-server", "https-server"]
 }
 
